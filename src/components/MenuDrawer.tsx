@@ -17,7 +17,7 @@ interface MenuDrawerProps {
 
 export const MenuDrawer = ({ routes, title, onClick }: MenuDrawerProps) => (
   <Box onClick={onClick} sx={sx.container}>
-    <Typography variant="h6" sx={{ my: 2 }}>
+    <Typography variant="h6" sx={sx.title}>
       {title}
     </Typography>
     <Divider />
@@ -26,5 +26,6 @@ export const MenuDrawer = ({ routes, title, onClick }: MenuDrawerProps) => (
 )
 
 const sx = {
-  container: { textAlign: 'center' }
+  container: { textAlign: 'center' },
+  title: { my: 2 }
 }

@@ -22,7 +22,7 @@ export const AppCard = ({
       {description.split('-').map((desc, index) => (
         <Typography
           key={index}
-          sx={{ padding: 1 }}
+          sx={sx.desc}
           variant="body2"
           color="text.secondary"
         >
@@ -40,5 +40,6 @@ export const AppCard = ({
 
 const sx = {
   container: { maxWidth: 345 },
-  media: { height: 140, width: 140, alignContent: 'center' }
+  media: { height: 140, width: 140, alignContent: 'center' },
+  desc: { padding: 1 }
 }

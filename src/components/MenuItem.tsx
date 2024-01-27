@@ -21,7 +21,7 @@ export const MenuItem = (
         onClick={() => {
           navigate(getPath(route.path))
         }}
-        sx={{ textAlign: 'center' }}
+        sx={sx.button}
       >
         <ListItemText
           primary={
@@ -33,4 +33,8 @@ export const MenuItem = (
       </ListItemButton>
     </ListItem>
   )
+}
+
+const sx = {
+  button: { textAlign: 'center' }
 }
