@@ -1,49 +1,49 @@
-import Drawer from '@mui/material/Drawer';
-import React from 'react';
-import { MenuDrawer } from './MenuDrawer';
+import Drawer from '@mui/material/Drawer'
 import {
-  AgnosticRouteObject,
-  AgnosticDataRouteObject,
-} from '@remix-run/router/dist/utils';
+  type AgnosticRouteObject,
+  type AgnosticDataRouteObject
+} from '@remix-run/router/dist/utils'
+import React from 'react'
+import { MenuDrawer } from './MenuDrawer'
 
 interface NavigationDrawerProps {
-  container: (() => HTMLElement) | undefined;
-  mobileOpen: boolean;
-  onClick: () => void;
-  title: string;
-  routes: (AgnosticRouteObject[] & AgnosticDataRouteObject[]) | undefined;
+  container: (() => HTMLElement) | undefined
+  mobileOpen: boolean
+  onClick: () => void
+  title: string
+  routes: (AgnosticRouteObject[] & AgnosticDataRouteObject[]) | undefined
 }
 export const NavigationDrawer = ({
   container,
   mobileOpen,
   onClick,
   title,
-  routes,
+  routes
 }: NavigationDrawerProps) => {
   return (
     <nav>
       <Drawer
         container={container}
-        variant='temporary'
+        variant="temporary"
         open={mobileOpen}
         onClose={onClick}
         ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
+          keepMounted: true // Better open performance on mobile.
         }}
         sx={sx.drawer}
       >
         <MenuDrawer routes={routes} title={title} onClick={onClick} />
       </Drawer>
     </nav>
-  );
-};
+  )
+}
 
 const sx = {
   drawer: {
     display: { xs: 'block', sm: 'none' },
     '& .MuiDrawer-paper': {
       boxSizing: 'border-box',
-      width: 240,
-    },
-  },
-};
+      width: 240
+    }
+  }
+}

@@ -1,30 +1,30 @@
-import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
-import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
-import React from 'react';
-import { MenuItem } from './MenuItem';
+import Box from '@mui/material/Box'
+import Divider from '@mui/material/Divider'
+import List from '@mui/material/List'
+import Typography from '@mui/material/Typography'
 import {
-  AgnosticRouteObject,
-  AgnosticDataRouteObject,
-} from '@remix-run/router/dist/utils';
+  type AgnosticRouteObject,
+  type AgnosticDataRouteObject
+} from '@remix-run/router/dist/utils'
+import React from 'react'
+import { MenuItem } from './MenuItem'
 
 interface MenuDrawerProps {
-  routes: (AgnosticRouteObject[] & AgnosticDataRouteObject[]) | undefined;
-  onClick: () => void;
-  title: string;
+  routes: (AgnosticRouteObject[] & AgnosticDataRouteObject[]) | undefined
+  onClick: () => void
+  title: string
 }
 
 export const MenuDrawer = ({ routes, title, onClick }: MenuDrawerProps) => (
   <Box onClick={onClick} sx={sx.container}>
-    <Typography variant='h6' sx={{ my: 2 }}>
+    <Typography variant="h6" sx={{ my: 2 }}>
       {title}
     </Typography>
     <Divider />
-    <List>{routes!.map((route) => MenuItem(route))}</List>
+    <List>{routes?.map((route) => MenuItem(route))}</List>
   </Box>
-);
+)
 
 const sx = {
-  container: { textAlign: 'center' },
-};
+  container: { textAlign: 'center' }
+}

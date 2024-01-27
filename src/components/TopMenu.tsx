@@ -1,27 +1,27 @@
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import React from 'react';
-import { getPath } from '../tools/utils';
-import { useNavigate } from 'react-router-dom';
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
 import {
-  AgnosticRouteObject,
-  AgnosticDataRouteObject,
-} from '@remix-run/router/dist/utils';
+  type AgnosticRouteObject,
+  type AgnosticDataRouteObject
+} from '@remix-run/router/dist/utils'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { getPath } from '../tools/utils'
 
 interface TopMenuProps {
-  routes: (AgnosticRouteObject[] & AgnosticDataRouteObject[]) | undefined;
+  routes: (AgnosticRouteObject[] & AgnosticDataRouteObject[]) | undefined
 }
 
 export const TopMenu = ({ routes }: TopMenuProps) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <Box sx={sx.container}>
-      {routes!.map((route) => (
+      {routes?.map((route) => (
         <Button
           key={route.id}
           onClick={() => {
-            navigate(getPath(route.path));
+            navigate(getPath(route.path))
           }}
           sx={sx.button}
         >
@@ -29,10 +29,10 @@ export const TopMenu = ({ routes }: TopMenuProps) => {
         </Button>
       ))}
     </Box>
-  );
-};
+  )
+}
 
 const sx = {
   container: { display: { xs: 'none', sm: 'block' } },
-  button: { color: '#fff' },
-};
+  button: { color: '#fff' }
+}

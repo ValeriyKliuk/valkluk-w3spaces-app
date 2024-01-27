@@ -1,22 +1,26 @@
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import { getPath } from '../tools/utils';
-import Link from '@mui/material/Link';
-import ListItemText from '@mui/material/ListItemText';
-import React from 'react';
+import Link from '@mui/material/Link'
+import ListItem from '@mui/material/ListItem'
+import ListItemButton from '@mui/material/ListItemButton'
+import ListItemText from '@mui/material/ListItemText'
 import {
-  AgnosticRouteObject,
-  AgnosticDataRouteObject,
-} from '@remix-run/router/dist/utils';
+  type AgnosticRouteObject,
+  type AgnosticDataRouteObject
+} from '@remix-run/router/dist/utils'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { getPath } from '../tools/utils'
 
 export const MenuItem = (
   route: AgnosticDataRouteObject | AgnosticRouteObject
 ): React.JSX.Element => {
+  const navigate = useNavigate()
   return (
     <ListItem key={route.id} disablePadding>
       <ListItemButton
         LinkComponent={Link}
-        to={getPath(route.path)}
+        onClick={() => {
+          navigate(getPath(route.path))
+        }}
         sx={{ textAlign: 'center' }}
       >
         <ListItemText
@@ -28,5 +32,5 @@ export const MenuItem = (
         />
       </ListItemButton>
     </ListItem>
-  );
-};
+  )
+}
